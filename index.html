@@ -1,4 +1,4 @@
-<!-- javascript and vue  -->
+<!-- REF - reactivity in  vue  -->
 
 <!DOCTYPE html>
 <html>
@@ -14,18 +14,18 @@
       <p> Lucky Number : {{luckyNumber}}</p>
       <p> Lucky Number is an {{luckyNumber%2 === 0 ? 'even' : 'odd'}}</p>
       <p> Employee : {{employee}}</p>
-      <p> Random Number from 1 to 10 : {{getRandomNumber()}}</p>
+      <p> Random Number from 1 to 10 : {{getRandomLuckyNumber()}}</p>
     </div>
 
   </body> 
   <script>
     // any vue code will be inside this script tag
     // initialize vue app from the library we imported from cdn
-    const { createApp } = Vue; // importing createApp function from Vue library
+    const { createApp, ref } = Vue; // importing createApp function from Vue library
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
         const message = "Hello  Vue 3!";
-        const luckyNumber = 6;
+        let luckyNumber = ref(6);
         const luckyNumbers = [1, 2, 3, 4 ];
         const employee = {
           name: "John",
@@ -37,15 +37,19 @@
           return message.toUpperCase();
         }
 
-        function getRandomNumber() {
+        function getRandomLuckyNumber() {
+          luckyNumber = Math.floor(Math.random() * 10) + 1;
+          console.log("Lucky Number is : " + luckyNumber);
           return Math.floor(Math.random() * 10) + 1;
         }
+ 
         return {
           luckyNumber,
           luckyNumbers,
           employee,
           getMessage,
-          getRandomNumber,
+          getRandomLuckyNumber,
+           
         } ;
 
       },
