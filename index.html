@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="app">
-      <h1> {{message.toUpperCase()}}</h1> <!--if we want to use message then createApp has to be mounted to div-->
+      <h1> {{getMessage()}}</h1> <!--if we want to use message then createApp has to be mounted to div-->
       <p> Lucky Number : {{luckyNumber}}</p>
       <p> Lucky Number is an {{luckyNumber%2 === 0 ? 'even' : 'odd'}}</p>
       <p> Employee : {{employee}}</p>
@@ -33,14 +33,18 @@
           salary: 50000,
         };
 
+        function getMessage() {
+          return message.toUpperCase();
+        }
+
         function getRandomNumber() {
           return Math.floor(Math.random() * 10) + 1;
         }
         return {
-          message,
           luckyNumber,
           luckyNumbers,
           employee,
+          getMessage,
           getRandomNumber,
         } ;
 
