@@ -1,4 +1,5 @@
-<!-- REF ON OBJECT  -->
+<!-- REACTIVE ON object in VUE 
+ we don't have to use attributes like .value if we are using reactive instead of ref -->
 
 <!DOCTYPE html>
 <html>
@@ -21,14 +22,14 @@
   <script>
     // any vue code will be inside this script tag
     // initialize vue app from the library we imported from cdn
-    const { createApp, ref } = Vue; // importing createApp function from Vue library
+    const { createApp, ref , reactive } = Vue; // importing createApp function from Vue library
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
         const message = "Hello  Vue 3!";
         let luckyNumber = ref(6);
         const luckyNumbers = [1, 2, 3, 4 ];
 
-        const employee = ref({
+        const employee = reactive({
           name: "John",
           age: 30,
           salary: 50000,
@@ -41,7 +42,7 @@
         function updateLuckyNumber() {
           setTimeout(() => {
             luckyNumber.value = Math.floor(Math.random() * 10) + 1;
-            employee.value.salary = 60000;   //employee.value.salary not employee.salary.value because employee is a ref object and we need to access the value property of the ref object to get the actual value of the employee object
+            employee.salary = 60000;   //employee.salary not employee.salary.value because employee is a reactive object and we need to access the property directly to get the actual value of the employee object
           }, 2000);
         }
  
