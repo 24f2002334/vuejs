@@ -1,4 +1,4 @@
-<!-- TIMEOUT IN FUNCTION  -->
+<!-- REF ON OBJECT  -->
 
 <!DOCTYPE html>
 <html>
@@ -27,11 +27,12 @@
         const message = "Hello  Vue 3!";
         let luckyNumber = ref(6);
         const luckyNumbers = [1, 2, 3, 4 ];
-        const employee = {
+
+        const employee = ref({
           name: "John",
           age: 30,
           salary: 50000,
-        };
+        });
 
         function getMessage() {
           return message.toUpperCase();
@@ -40,6 +41,7 @@
         function updateLuckyNumber() {
           setTimeout(() => {
             luckyNumber.value = Math.floor(Math.random() * 10) + 1;
+            employee.value.salary = 60000;   //employee.value.salary not employee.salary.value because employee is a ref object and we need to access the value property of the ref object to get the actual value of the employee object
           }, 2000);
         }
  
