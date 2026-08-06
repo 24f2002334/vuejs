@@ -1,16 +1,21 @@
-<!-- returning multiple properties   -->
+<!-- object and arrays  -->
+
 <!DOCTYPE html>
 <html>
   <head> 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!-- ((using vue from cdn)) on vuejs.org websiste  -->
+    <!-- using vue from cdn on vuejs.org websiste  -->
 
     <!-- we are using composition vue api-->
   </head>
   <body>
     <div id="app">
       <h1> {{message}}</h1> <!--if we want to use message then createApp has to be mounted to div-->
+      <p> Lucky Number : {{luckyNumber}}</p>
+      <p> Lucky Numbers : {{luckyNumbers}}</p>
+      <p> Employee : {{employee}}</p>
     </div>
+
   </body> 
   <script>
     // any vue code will be inside this script tag
@@ -19,9 +24,18 @@
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
         const message = "Hello  Vue 3!";
-
+        const luckyNumber = 7;
+        const luckyNumbers = [1, 2, 3, 4 ];
+        const employee = {
+          name: "John",
+          age: 30,
+          salary: 50000,
+        };
         return {
           message,
+          luckyNumber,
+          luckyNumbers,
+          employee,
         } ;
 
       },
