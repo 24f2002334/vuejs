@@ -1,0 +1,30 @@
+<!-- returning multiple properties   -->
+<!DOCTYPE html>
+<html>
+  <head> 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- ((using vue from cdn)) on vuejs.org websiste  -->
+
+    <!-- we are using composition vue api-->
+  </head>
+  <body>
+    <div id="app">
+      <h1> {{message}}</h1> <!--if we want to use message then createApp has to be mounted to div-->
+    </div>
+  </body> 
+  <script>
+    // any vue code will be inside this script tag
+    // initialize vue app from the library we imported from cdn
+    const { createApp } = Vue; // importing createApp function from Vue library
+    createApp({
+      setup() { // in compostion api everything is done inside this setup function 
+        const message = "Hello  Vue 3!";
+
+        return {
+          message,
+        } ;
+
+      },
+    }).mount("#app"); // mounting the vue app to the div with id app;
+  </script>
+</html>
