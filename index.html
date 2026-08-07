@@ -1,4 +1,5 @@
-<!-- REACTIVE and non reactivity in VUE -->
+<!-- V-ONCE  in VUE 
+ directives apply special reactive behavior to the rendered DOM -->
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
   </head>
   <body>
     <div id="app">
-      <h1> {{getMessage()}}</h1> <!--if we want to use message then createApp has to be mounted to div-->
+      <span v-html="getMessage()"></span>
       <p> Lucky Number : {{luckyNumber}}</p>
       <p> Lucky Number is an {{luckyNumber%2 === 0 ? 'even' : 'odd'}}</p>
       <p> Employee : {{employee}}</p>
@@ -35,7 +36,7 @@
         });
 
         function getMessage() {
-          return message.toUpperCase();
+          return `<h1><u>${message}</u></h1>`;
         }
 
         function updateLuckyNumber() {
