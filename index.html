@@ -1,4 +1,4 @@
-<!-- CLEANUP  -->
+<!-- V-SHOW  -->
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,9 @@
       
       <p>{{employee.name}} is {{employee.age}} years old.</p>
       <p>His salary is ${{employee.salary}}</p>
+      <p v-show="employee.hasCorporateCard">
+        Spending limit for card : {{employee.spendingLimit}}
+      </p>
     </div>
 
   </body> 
@@ -30,7 +33,7 @@
           name: "John",
           age: 30,
           salary: 50000,
-          hasCorporateCard: true,
+          hasCorporateCard: false,
           spendingLimit: 10000,
           yearswithCompany: 5,
         });
