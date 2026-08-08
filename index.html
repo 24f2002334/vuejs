@@ -1,12 +1,4 @@
-<!-- V-if 
- 
-the main diff bw vshow and vif is
-
-if the condition is false then 
-if component will not be in dom 
-but 
-show component  will be in domm with display=none 
--->
+<!-- V-ELSE/V-ELSE-IF -->
 
 <!DOCTYPE html>
 <html>
@@ -30,6 +22,10 @@ show component  will be in domm with display=none
       <p v-if="employee.hasCorporateCard">
         Spending limit for card : {{employee.spendingLimit}}
       </p>
+      <p v-else-if="employee.salary>25000 && employee.yearsWithCompany>2">
+        You are eligible for a corporate card.
+      </p>
+      <p v-else> Employee is not eligible for a corporate card.</p>
     </div>
 
   </body> 
@@ -47,7 +43,7 @@ show component  will be in domm with display=none
           salary: 50000,
           hasCorporateCard: false,
           spendingLimit: 10000,
-          yearswithCompany: 5,
+          yearsWithCompany: 5,
         });
         
         return {
