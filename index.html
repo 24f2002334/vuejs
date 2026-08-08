@@ -13,16 +13,17 @@
     <div id="app">
       <span v-html="getMessage()"></span>
       <p> Lucky Number : {{luckyNumber}}</p>
+      <p v-once> Rendered once lucky number : {{luckyNumber}}</p>
       <p> Lucky Number is an {{luckyNumber%2 === 0 ? 'even' : 'odd'}}</p>
       <p> Employee : {{employee}}</p>
-      <p>{{updateLuckyNumber()}}</p>
+      <!-- <p>{{updateLuckyNumber()}}</p>                          if using this then the value will get updated every time the component re-renders means it will be called and updates the value again and again-->  
     </div>
 
   </body> 
   <script>
     // any vue code will be inside this script tag
     // initialize vue app from the library we imported from cdn
-    const { createApp, ref , reactive } = Vue; // importing createApp function from Vue library
+    const { createApp, ref , reactive , onMounted } = Vue; // importing createApp function from Vue library
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
         const message = "Hello  Vue 3!";
@@ -41,11 +42,15 @@
 
         function updateLuckyNumber() {
           setTimeout(() => {
-            luckyNumber.value = Math.floor(Math.random() * 10) + 1;
+            luckyNumber.value = Math.floor(Math.random() * 10) + 1 ;
             employee.salary = 60000;   //employee.salary not employee.salary.value because employee is a reactive object and we need to access the property directly to get the actual value of the employee object
           }, 2000);
         }
- 
+
+        // Run once when component mounts
+        onMounted(() => {
+          updateLuckyNumber();
+        });
         return {
           luckyNumber,
           luckyNumbers,
