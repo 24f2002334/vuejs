@@ -1,5 +1,4 @@
-<!-- V-ONCE  in VUE 
- directives apply special reactive behavior to the rendered DOM -->
+<!-- YOUR NAME HERE  -->
 
 <!DOCTYPE html>
 <html>
@@ -16,6 +15,17 @@
       <p v-once> Rendered once lucky number : {{luckyNumber}}</p>
       <p> Lucky Number is an {{luckyNumber%2 === 0 ? 'even' : 'odd'}}</p>
       <p> Employee : {{employee}}</p>
+      <!-- <p> Blog URL : <a :href="blogurl" target="_blank">Vue.js Guide</a></p>
+      <a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue.js Guide</a>
+      <br><br>
+      <a href="{{blogurl}}" >  Guide</a>  
+       // this will not work because we are using vuejs and we need to use v-bind directive to bind the value of blogurl to the href attribute of the anchor tag
+                                            // this is the difference between vuejs and angularjs because in angularjs we can use {{}} to bind the value of a variable to an attribute of an element but in vuejs we need to use v-bind directive to bind the value of a variable to an attribute of an element
+                                             ////this will not work because we are using mustache syntax which is used for text interpolation and not for attribute binding -->
+      <br>
+      <br>
+      <!-- <a href="{{blogurl}}" >  BLOGURL</a>  -->
+      <a v-bind:href="blogurl">BLOGURL</a>
       <!-- <p>{{updateLuckyNumber()}}</p>                          if using this then the value will get updated every time the component re-renders means it will be called and updates the value again and again-->  
     </div>
 
@@ -29,6 +39,7 @@
         const message = "Hello  Vue 3!";
         let luckyNumber = ref(6);
         const luckyNumbers = [1, 2, 3, 4 ];
+        const blogurl = "https://vuejs.org/guide/introduction.html";
 
         const employee = reactive({
           name: "John",
@@ -55,8 +66,9 @@
           luckyNumber,
           luckyNumbers,
           employee,
+          blogurl,
           getMessage,
-          updateLuckyNumber
+          updateLuckyNumber,
            
         } ;
 
