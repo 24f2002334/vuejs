@@ -1,4 +1,12 @@
-<!-- V-SHOW  -->
+<!-- V-if 
+ 
+the main diff bw vshow and vif is
+
+if the condition is false then 
+if component will not be in dom 
+but 
+show component  will be in domm with display=none 
+-->
 
 <!DOCTYPE html>
 <html>
@@ -16,6 +24,10 @@
       <p>{{employee.name}} is {{employee.age}} years old.</p>
       <p>His salary is ${{employee.salary}}</p>
       <p v-show="employee.hasCorporateCard">
+        Spending limit for card : {{employee.spendingLimit}}
+      </p>
+
+      <p v-if="employee.hasCorporateCard">
         Spending limit for card : {{employee.spendingLimit}}
       </p>
     </div>
