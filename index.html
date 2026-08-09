@@ -1,4 +1,4 @@
-<!-- V-ELSE/V-ELSE-IF -->
+<!-- V-FOR -->
 
 <!DOCTYPE html>
 <html>
@@ -11,21 +11,15 @@
   <body>
     <div id="app">
       <h1> {{message}}</h1>
-      <p> Lucky Numbers : {{luckyNumbers}}</p>
-      
+      <p v-for="(luckyNumber, index) in luckyNumbers" >
+        {{index+1}}. Lucky Number: {{luckyNumber}} (Index: {{index}})
+      </p>
+      <span v-for="(luckyNumber, index) in luckyNumbers" >
+        {{index+1}}. Lucky Number: {{luckyNumber}} (Index: {{index}})
+      </span>
       <p>{{employee.name}} is {{employee.age}} years old.</p>
       <p>His salary is ${{employee.salary}}</p>
-      <p v-show="employee.hasCorporateCard">
-        Spending limit for card : {{employee.spendingLimit}}
-      </p>
-
-      <p v-if="employee.hasCorporateCard">
-        Spending limit for card : {{employee.spendingLimit}}
-      </p>
-      <p v-else-if="employee.salary>25000 && employee.yearsWithCompany>2">
-        You are eligible for a corporate card.
-      </p>
-      <p v-else> Employee is not eligible for a corporate card.</p>
+      
     </div>
 
   </body> 
@@ -36,7 +30,7 @@
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
         const message = "Hello  Vue 3!";  
-        const luckyNumbers = [3, 5, 7, 11, 15];
+        let luckyNumbers = [3, 5, 7, 11, 15];
         const employee = reactive({
           name: "John",
           age: 30,
@@ -49,7 +43,6 @@
         return {
           luckyNumbers,
           employee,
-           
           message,
            
         } ;
