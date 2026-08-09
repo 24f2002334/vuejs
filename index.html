@@ -1,4 +1,4 @@
-<!-- V-FOR -->
+<!-- ARRAY OF OBJECTS -->
 
 <!DOCTYPE html>
 <html>
@@ -11,12 +11,23 @@
   <body>
     <div id="app">
       <h1> {{message}}</h1>
-      <p v-for="(luckyNumber, index) in luckyNumbers" >
-        {{index+1}}. Lucky Number: {{luckyNumber}} (Index: {{index}})
-      </p>
+      Lucky Numbers are:
       <span v-for="(luckyNumber, index) in luckyNumbers" >
-        {{index+1}}. Lucky Number: {{luckyNumber}} (Index: {{index}})
+        <br/>{{luckyNumber}}
       </span>
+
+      <hr/>
+
+      <p> Projects in Pipeline</p>
+      <ul>
+        <li v-for="(project,index) in employee.projects">
+          <span>
+            {{index+1}} - "{{project.project}}" timeline is -
+            {{project.timeline}}
+          </span>
+
+        </li>
+      </ul>
       <p>{{employee.name}} is {{employee.age}} years old.</p>
       <p>His salary is ${{employee.salary}}</p>
       
@@ -38,6 +49,12 @@
           hasCorporateCard: false,
           spendingLimit: 10000,
           yearsWithCompany: 5,
+          projects:[
+            { project: "Green A", timeline: "2 years" },
+            { project: "Blue B", timeline:"9 months" },
+            { project: "Pink C", timeline: "3 year" }
+            //array of objects
+          ]
         });
         
         return {
