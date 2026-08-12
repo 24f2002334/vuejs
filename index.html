@@ -1,4 +1,4 @@
-<!-- V-ONCE IN LOOP -->
+<!-- key in v for -->
 
 <!DOCTYPE html>
 <html>
@@ -12,19 +12,22 @@
     <div id="app">
       <h1> {{message}}</h1>
       Lucky Numbers are:
-      <span v-for="(luckyNumber, index) in luckyNumbers" >
+      <span v-for="(luckyNumber, index) in luckyNumbers" >  
         <br/> <span v-once>{{luckyNumber}}</span>
       </span>
 
       <hr/>
 
+      {{shuffleEmployeeProjects()}}
+
       <p> Projects in Pipeline</p>
       <ul>
-        <li v-for="(project,index) in employee.projects">
+        <li v-for="(project,index) in employee.projects" :key="project.project">  <!-- use key with for bcz when we are writing something in input box and then some change occurs the written input interchanges and we don't want that so use key with for-->
           <span>
             {{index+1}} - "{{project.project}}" timeline is -
             {{project.timeline}}
           </span>
+          <input type="text" />
 
         </li>
       </ul>
@@ -64,12 +67,18 @@
             //array of objects
           ]
         });
+
+        function shuffleEmployeeProjects() {
+          setTimeout(() => {
+            employee.projects.sort(() => Math.random() - 0.5);
+          }, 5000);
+        }
         
         return {
           luckyNumbers,
           employee,
           message,
-           
+          shuffleEmployeeProjects
         } ;
 
       },
