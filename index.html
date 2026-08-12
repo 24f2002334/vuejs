@@ -10,39 +10,9 @@
   </head>
   <body>
     <div id="app">
-      <h1> {{message}}</h1>
-      Lucky Numbers are:
-      <span v-for="(luckyNumber, index) in luckyNumbers" >  
-        <br/> <span v-once>{{luckyNumber}}</span>
-      </span>
-
-      <hr/>
-
-      {{shuffleEmployeeProjects()}}
-
-      <p> Projects in Pipeline</p>
-      <ul>
-        <li v-for="(project,index) in employee.projects" :key="project.project">  <!-- use key with for bcz when we are writing something in input box and then some change occurs the written input interchanges and we don't want that so use key with for-->
-          <span>
-            {{index+1}} - "{{project.project}}" timeline is -
-            {{project.timeline}}
-          </span>
-          <input type="text" />
-
-        </li>
-      </ul>
-<hr>
-<ul>
-  <li v-for="(value, key) in employee">
-    <span>{{key}} : {{value}}</span>
-
-  </li>
-</ul>
-
-      <p>{{employee.name}} is {{employee.age}} years old.</p>
-      <p>His salary is ${{employee.salary}}</p>
-      
+      <!-- vue app will be mounted here -->
     </div>
+     
 
   </body> 
   <script>
@@ -51,34 +21,10 @@
     const { createApp, ref , reactive , onMounted } = Vue; // importing createApp function from Vue library
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
-        const message = "Hello  Vue 3!";  
-        let luckyNumbers = [3, 5, 7, 11, 15];
-        const employee = reactive({
-          name: "John",
-          age: 30,
-          salary: 50000,
-          hasCorporateCard: false,
-          spendingLimit: 10000,
-          yearsWithCompany: 5,
-          projects:[
-            { project: "Green A", timeline: "2 years" },
-            { project: "Blue B", timeline:"9 months" },
-            { project: "Pink C", timeline: "3 year" }
-            //array of objects
-          ]
-        });
-
-        function shuffleEmployeeProjects() {
-          setTimeout(() => {
-            employee.projects.sort(() => Math.random() - 0.5);
-          }, 5000);
-        }
         
+
         return {
-          luckyNumbers,
-          employee,
-          message,
-          shuffleEmployeeProjects
+           
         } ;
 
       },
