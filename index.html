@@ -1,4 +1,4 @@
-<!-- key value in OBJECTS -->
+<!-- V-ONCE IN LOOP -->
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
       <h1> {{message}}</h1>
       Lucky Numbers are:
       <span v-for="(luckyNumber, index) in luckyNumbers" >
-        <br/>{{luckyNumber}}
+        <br/> <span v-once>{{luckyNumber}}</span>
       </span>
 
       <hr/>
