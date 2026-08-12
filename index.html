@@ -1,4 +1,4 @@
-<!-- BINDING SYSTEMS IN VUE -->
+<!-- DYNAMIC STYLE BINDINGS   IN VUE -->
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
 
       <!-- <div style="background-color: aqua; font-size: 40px;">Hello World</div> -->
 
-        <div v-bind:style="{backgroundColor: 'aqua', fontSize: '40px'}">Hello World</div> <!-- camelcase key then colons and then value in quotes -->
+      <div v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp + 'px'}">Hello World</div> <!-- camelcase key then colons and then value in quotes -->
 
       <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World</div>   <!-- "{'key':'value','':''}" -->
 
@@ -27,11 +27,13 @@
     // any vue code will be inside this script tag
     // initialize vue app from the library we imported from cdn
     const { createApp, ref , reactive , onMounted } = Vue; // importing createApp function from Vue library
+    const fontSizeTemp = 60;
+    
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
         
-
         return {
+          fontSizeTemp,
            
         } ;
 
