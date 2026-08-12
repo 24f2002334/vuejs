@@ -1,4 +1,4 @@
-<!-- key in v for -->
+<!-- BINDING SYSTEMS IN VUE -->
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,14 @@
   <body>
     <div id="app">
       <!-- vue app will be mounted here -->
+
+      <!-- <div style="background-color: aqua; font-size: 40px;">Hello World</div> -->
+
+        <div v-bind:style="{backgroundColor: 'aqua', fontSize: '40px'}">Hello World</div> <!-- camelcase key then colons and then value in quotes -->
+
+      <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World</div>   <!-- "{'key':'value','':''}" -->
+
+
     </div>
      
 
