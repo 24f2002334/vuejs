@@ -22,7 +22,12 @@
         Hello World
       </div>   <!-- "{'key':'value','':''}" -->
 
-      <span class="padding-medium" v-bind:class="{h1:true, 'bg-grey': true}" > Random Text</span>
+      <span class="padding-medium" v-bind:class="{h1:isMaintitle(), 'bg-green': true }" > Random Text</span>
+      <br></br>
+      <span class="padding-medium" v-bind:class="MainTitle"> Random Text</span>
+    
+      <span class="padding-medium" v-bind:class="isMaintitle() ? MainTitle : ' ' "> Random Text</span>
+   
     </div>
      
 
@@ -36,8 +41,23 @@
     createApp({
       setup() { // in compostion api everything is done inside this setup function 
         
+        const MainTitle = {
+          h1: true,
+          'bg-grey': true
+        }
+        
+        function isMaintitle() {
+          return false;
+        }
+        function HasGreenBackground() {
+          return false;
+        }
+
         return {
           fontSizeTemp,
+          MainTitle,
+          isMaintitle,
+          HasGreenBackground
            
         } ;
 
@@ -47,11 +67,11 @@
 
   <style>
     .h1{
-      font-size: 60px;
+      font-size: 20px;
       color: green;
     }
     .h2{
-      font-size: 40px;
+      font-size: 20px;
       color: chocolate;
     }
     .bg-grey{
@@ -61,7 +81,7 @@
       background-color: lightgreen;
     }
     .padding-medium{
-      padding: 20px;
+      padding: 10px;
     }
   </style>
 </html>
