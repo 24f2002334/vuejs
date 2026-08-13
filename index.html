@@ -26,7 +26,7 @@
       <br></br>
       <span class="padding-medium" v-bind:class="MainTitle"> Random Text</span>
     
-      <span class="padding-medium" v-bind:class="isMaintitle() ? MainTitle : ' ' ">
+      <span class="padding-medium" v-bind:class="[ isMaintitle() ? MainTitle : '', borderClass]">
          Random Text
       </span>
 
@@ -51,9 +51,13 @@
         const MainTitle = {
           h1: true,
           'bg-grey': true
-        }
+        };
         
 
+        const borderClass= {
+        
+          border: true
+        };
         const someStyle = {
           style1:{
             fontSize: '40px',
@@ -65,7 +69,7 @@
           backgroundColor: 'lightgreen',
           margin: '20px',
           border: '1px solid black'
-        }
+        };
 
         function isMaintitle() {
           return false;
@@ -77,6 +81,7 @@
         return {
           fontSizeTemp,
           MainTitle,
+          borderClass,
           isMaintitle,
           HasGreenBackground,
           someStyle
@@ -104,6 +109,9 @@
     }
     .padding-medium{
       padding: 10px;
+    }
+    .border{
+      border: 1px solid red;
     }
   </style>
 </html>
