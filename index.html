@@ -1,4 +1,4 @@
-<!-- CLASS BINDINGS   IN VUE -->
+<!-- ARRAY OF CLASSES AND CUSTOM STYLE  style IN VUE -->
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,14 @@
       <br></br>
       <span class="padding-medium" v-bind:class="MainTitle"> Random Text</span>
     
-      <span class="padding-medium" v-bind:class="isMaintitle() ? MainTitle : ' ' "> Random Text</span>
+      <span class="padding-medium" v-bind:class="isMaintitle() ? MainTitle : ' ' ">
+         Random Text
+      </span>
+
+      <br/> <br/>
+      <span v-bind:style="someStyle.style1">
+         Random Style Binding
+      </span>
    
     </div>
      
@@ -46,6 +53,20 @@
           'bg-grey': true
         }
         
+
+        const someStyle = {
+          style1:{
+            fontSize: '40px',
+            backgroundColor: 'blue',
+            margin: '20px',
+            border: '1px solid black'
+          },
+          fontSize: "40px",
+          backgroundColor: 'lightgreen',
+          margin: '20px',
+          border: '1px solid black'
+        }
+
         function isMaintitle() {
           return false;
         }
@@ -57,7 +78,8 @@
           fontSizeTemp,
           MainTitle,
           isMaintitle,
-          HasGreenBackground
+          HasGreenBackground,
+          someStyle
            
         } ;
 
