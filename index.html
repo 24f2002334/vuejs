@@ -14,11 +14,15 @@
 
       <!-- <div style="background-color: aqua; font-size: 40px;">Hello World</div> -->
 
-      <div v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp + 'px'}">Hello World</div> <!-- camelcase key then colons and then value in quotes -->
+      <div v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp + 'px'}">
+        Hello World
+      </div> <!-- camelcase key then colons and then value in quotes -->
 
-      <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World</div>   <!-- "{'key':'value','':''}" -->
+      <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">
+        Hello World
+      </div>   <!-- "{'key':'value','':''}" -->
 
-
+      <span class="padding-medium" v-bind:class="{h1:true, 'bg-grey': true}" > Random Text</span>
     </div>
      
 
@@ -40,4 +44,24 @@
       },
     }).mount("#app"); // mounting the vue app to the div with id app;
   </script>
+
+  <style>
+    .h1{
+      font-size: 60px;
+      color: green;
+    }
+    .h2{
+      font-size: 40px;
+      color: chocolate;
+    }
+    .bg-grey{
+      background-color: grey;
+    }
+    .bg-green{
+      background-color: lightgreen;
+    }
+    .padding-medium{
+      padding: 20px;
+    }
+  </style>
 </html>
